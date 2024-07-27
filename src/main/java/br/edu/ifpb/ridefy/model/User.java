@@ -1,14 +1,12 @@
 package br.edu.ifpb.ridefy.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.locationtech.jts.geom.Point;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -26,7 +24,9 @@ public class User {
 
     private String name;
 
-    private Double latitude;
+    @Column(columnDefinition = "POINT")
+    private Point pickupLocation;
 
-    private Double longitude;
+    @Column(columnDefinition = "POINT")
+    private Point destinationLocation;
 }
